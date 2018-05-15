@@ -41,5 +41,7 @@ public:
 	~BoardStructure();
 	bool isValidMove(int rawIdx, Direction dir, const std::array<bool, 15>& currentPegs) const;
 	void commitMove(int fromIdx, Direction dir, std::array<bool, 15>& currentPegs);
+	bool hasPossibleMoves(const std::array<bool, 15>& remainingPegs);
+
 };
 

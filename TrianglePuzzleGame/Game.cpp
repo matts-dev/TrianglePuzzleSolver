@@ -76,11 +76,12 @@ void Game::play()
 		printState();
 		requestMove();
 	}
+	std::cout << "Game Over" << std::endl;
 }
 
 bool Game::gameOver()
 {
-	return false;
+	return !board.hasPossibleMoves(pegsPresent);
 }
 
 void Game::printState()

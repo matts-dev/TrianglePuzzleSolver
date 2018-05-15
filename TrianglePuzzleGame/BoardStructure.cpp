@@ -217,4 +217,38 @@ void BoardStructure::commitMove(int fromIdx, Direction dir, std::array<bool, 15>
 	}
 }
 
+bool BoardStructure::hasPossibleMoves(const std::array<bool, 15>& remainingPegs)
+{
+	using arr_size_t = std::array<bool, 15>::size_type;
+	//this method returns early if there is a viable move.
+
+	for (arr_size_t i = 0; i < remainingPegs.size(); ++i)
+	{
+		//only consider moves if there is a peg.
+		if (remainingPegs[i])
+		{
+			//try all directions
+			for (Direction dir = Direction::R; dir < Direction::NOT_A_DIRECTION; dir = static_cast<Direction>(dir + 1))
+			{
+				PegNode * midPeg = pegs[i].getNeighbor(dir);
+				if (midPeg)
+				{
+					PegNode * dstPeg = pegs[midPeg->assignedIndex].getNeighbor(dir);
+					if (dstPeg)
+					{
+						//make sure the destination peg is empty, and that the peg is jumping over a peg.
+						if (!remainingPegs[dstPeg->assignedIndex] && remainingPegs[midPeg->assignedIndex])
+						{
+							return true;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	return false;
+}
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
