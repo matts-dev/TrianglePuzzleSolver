@@ -6,7 +6,8 @@
 int main()
 {
 	Game game;
-	game.play();
+	//game.play();
+	game.solve();
 
 
 	std::cin.get();

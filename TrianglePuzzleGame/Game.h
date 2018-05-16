@@ -17,11 +17,13 @@ public:
 	void initializeStartHoleTo(unsigned int startPos);
 	void play();
 	bool gameOver();
+	void solve();
 private:
 	void printState();
 	void requestMove();
 	void commitMove(int from, Direction dir);
 	
+	int getStartLocationFromUser();
 };
 
 

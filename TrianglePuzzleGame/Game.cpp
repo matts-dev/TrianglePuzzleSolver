@@ -6,6 +6,10 @@
 
 #include "Utils.h"
 #include"Direction.h"
+#include "StateNode.h"
+#include <memory>
+#include <queue>
+#include <chrono>
 
 Game::Game()
 {
@@ -65,11 +69,7 @@ void Game::initializeStartHoleTo(unsigned int startPos)
 void Game::play()
 {
 	printLocations();
-	std::cout << "Pick an index for the starting hole to be." << std::endl;
-	int startPos;
-	std::cin >> startPos;
-
-
+	int startPos = getStartLocationFromUser();
 	initializeStartHoleTo(startPos);
 	while (!gameOver())
 	{
@@ -84,6 +84,89 @@ bool Game::gameOver()
 	return !board.hasPossibleMoves(pegsPresent);
 }
 
+void Game::solve()
+{
+	using std::chrono::steady_clock;
+	using std::chrono::duration_cast;
+	using std::chrono::milliseconds;
+	using std::chrono::seconds;
+	
+
+	//get the start position
+	printLocations();
+	int startPos = getStartLocationFromUser();
+	initializeStartHoleTo(startPos);
+
+	//prepare BFS
+	std::shared_ptr<StateNode> firstState = std::make_shared<StateNode>();
+	firstState->storeState(pegsPresent);
+
+	std::queue<std::shared_ptr<StateNode>> nextStateQueue;
+	nextStateQueue.push(firstState);
+
+	//a buffer to read states into
+	std::array<bool, NUM_PEGS> pegsSrcBuffer = { 0 };
+	std::vector<std::shared_ptr<StateNode>> moveBuffer;
+
+	std::shared_ptr<StateNode> winSequence = nullptr;
+	bool done = false;
+
+
+	steady_clock::time_point end, start = steady_clock::now();
+	
+	//BFS using the start state.
+	while (nextStateQueue.size() != 0 && !done)
+	{
+		std::shared_ptr<StateNode> node = nextStateQueue.front(); 
+		nextStateQueue.pop();
+
+		node->retrieveState(pegsSrcBuffer);
+		board.getAllMoves(moveBuffer, node);
+
+		for (std::shared_ptr<StateNode>& potentialMove : moveBuffer)
+		{
+			//std::cout << potentialMove->state << std::endl;
+			if (potentialMove->isWinningState())
+			{
+
+				//prepare winning state sequence
+				winSequence = StateNode::reverseList(potentialMove);
+				done = true;
+				break;
+			}
+			else
+			{
+				nextStateQueue.push(potentialMove);
+			}
+		}
+	}
+
+	end = steady_clock::now();
+	steady_clock::duration time = end - start;
+	std::cout << "\n Search complete in " << duration_cast<seconds> (time).count() << " seconds; press enter.\n" << std::endl;
+
+	//print out the sequence to the winning state
+	if (winSequence)
+	{
+		while(winSequence->previous_state != nullptr)
+		{
+			winSequence->retrieveState(pegsPresent);
+			printState();
+			std::cout << "Press enter to see the next state" << std::endl << std::endl;
+			std::cin.get();
+
+			winSequence = winSequence->previous_state;
+		}
+		winSequence->retrieveState(pegsPresent);
+		printState();
+		std::cout << "This is the final state." << std::endl;
+	}
+	else
+	{
+		std::cout << "No solution found for 1 peg from this start state." << std::endl;
+	}
+}
+
 void Game::printState()
 {
 	int wid = 2;
@@ -91,7 +174,7 @@ void Game::printState()
 	int index = 0;
 	int offset = boardCharSize / (4); //4 is due to dividing by 2, then dividing by width
 	int elementsInRow = 1;
-	std::string boarder(boardCharSize + wid, '-'); //mult by 2 because set width of 2 modifier used throghout
+	std::string boarder(boardCharSize + wid, '-'); //mult by 2 because set width of 2 modifier used throughout
 	std::cout << boarder << std::endl;
 
 	//rows (newlines) are more spaced, so only draw half of the rows.
@@ -140,5 +223,16 @@ void Game::requestMove()
 void Game::commitMove(int fromIdx, Direction dir)
 {
 	board.commitMove(fromIdx, dir, pegsPresent);
+}
+
+int Game::getStartLocationFromUser()
+{
+	std::cout << "Pick an index for the starting hole to be." << std::endl;
+
+	int startPos;
+	std::cin >> startPos;
+	std::cin.get(); //buffer clear on newline after number.
+
+	return startPos;
 }
 

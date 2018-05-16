@@ -2,8 +2,11 @@
 
 #include<vector>
 #include<array>
+#include<memory>
 
 #include "Direction.h"
+#include "Utils.h"
+#include "StateNode.h"
 
 
 class PegNode;
@@ -39,9 +42,10 @@ class BoardStructure
 public:
 	BoardStructure();
 	~BoardStructure();
-	bool isValidMove(int rawIdx, Direction dir, const std::array<bool, 15>& currentPegs) const;
-	void commitMove(int fromIdx, Direction dir, std::array<bool, 15>& currentPegs);
+	bool isValidMove(int rawIdx, Direction dir, const std::array<bool, NUM_PEGS>& currentPegs) const;
+	void commitMove(int fromIdx, Direction dir, std::array<bool, NUM_PEGS>& currentPegs);
 	bool hasPossibleMoves(const std::array<bool, 15>& remainingPegs);
 
+	void getAllMoves(std::vector<std::shared_ptr<StateNode>>& moveBuffer, std::shared_ptr<StateNode>& node);
 };
 

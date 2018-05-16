@@ -1,5 +1,7 @@
 #include "BoardStructure.h"
 #include "Utils.h"
+#include <memory>
+#include "StateNode.h"
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -202,7 +204,7 @@ bool BoardStructure::isValidMove(
 	return true;
 }
 
-void BoardStructure::commitMove(int fromIdx, Direction dir, std::array<bool, 15>& currentPegs)
+void BoardStructure::commitMove(int fromIdx, Direction dir, std::array<bool, NUM_PEGS>& currentPegs)
 {
 	if (!Utils::isOutOfBounds(fromIdx) && isValidMove(fromIdx, dir, currentPegs))
 	{
@@ -219,7 +221,7 @@ void BoardStructure::commitMove(int fromIdx, Direction dir, std::array<bool, 15>
 
 bool BoardStructure::hasPossibleMoves(const std::array<bool, 15>& remainingPegs)
 {
-	using arr_size_t = std::array<bool, 15>::size_type;
+	using arr_size_t = std::array<bool, NUM_PEGS>::size_type;
 	//this method returns early if there is a viable move.
 
 	for (arr_size_t i = 0; i < remainingPegs.size(); ++i)
@@ -250,5 +252,52 @@ bool BoardStructure::hasPossibleMoves(const std::array<bool, 15>& remainingPegs)
 	return false;
 }
 
+//signature is somewhat hard to read, using declarations help clarify.
+using std::vector;
+using std::shared_ptr;
+void BoardStructure::getAllMoves(vector<shared_ptr<StateNode>>& moveBuffer, shared_ptr<StateNode>& node)
+{
+	using arr_size_t = std::array<bool, NUM_PEGS>::size_type;
+	moveBuffer.clear();
+
+	//load up the start state. 
+	std::array<bool, NUM_PEGS> pegFlags = { 0 };
+	std::array<bool, NUM_PEGS> pegFlagsCpy; //copied later if needed
+	node->retrieveState(pegFlags);
+
+	//find all moves and add them to the move buffer.
+	for (arr_size_t i = 0; i < pegFlags.size(); ++i)
+	{
+		//only consider moves if there is a peg.
+		if (pegFlags[i])
+		{
+			//try all directions
+			for (Direction dir = Direction::R; dir < Direction::NOT_A_DIRECTION; dir = static_cast<Direction>(dir + 1))
+			{
+				PegNode * midPeg = pegs[i].getNeighbor(dir);
+				if (midPeg)
+				{
+					PegNode * dstPeg = pegs[midPeg->assignedIndex].getNeighbor(dir);
+					if (dstPeg)
+					{
+						//make sure the destination peg is empty, and that the peg is jumping over a peg.
+						if (!pegFlags[dstPeg->assignedIndex] && pegFlags[midPeg->assignedIndex])
+						{
+							//this is a viable move; calculate the result state.
+							pegFlagsCpy = pegFlags;
+							commitMove(i, dir, pegFlagsCpy);
+
+							//store the result state.
+							auto newState = std::make_shared<StateNode>();
+							newState->storeState(pegFlagsCpy);
+							newState->previous_state = node;
+							moveBuffer.push_back(newState);
+						}
+					}
+				}
+			}
+		}
+	}
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
