@@ -1,6 +1,7 @@
 #pragma once
 #include <array>
 
+
 #include "BoardStructure.h"
 #include "Utils.h"
 

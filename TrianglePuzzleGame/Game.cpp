@@ -10,6 +10,7 @@
 #include <memory>
 #include <queue>
 #include <chrono>
+#include <unordered_map>
 
 Game::Game()
 {
@@ -111,6 +112,10 @@ void Game::solve()
 	std::shared_ptr<StateNode> winSequence = nullptr;
 	bool done = false;
 
+	//hash<uint16_t> is specialized. uint16_t is unsigned short; 
+	//this specialization is in the header <functional> http://n.cppreference.com/w/cpp/utility/hash
+	std::unordered_map<uint16_t, bool> previouslyVisited;
+
 
 	steady_clock::time_point end, start = steady_clock::now();
 	
@@ -136,7 +141,12 @@ void Game::solve()
 			}
 			else
 			{
-				nextStateQueue.push(potentialMove);
+				//check if this state has been visited
+				if(previouslyVisited.find(potentialMove->state) == previouslyVisited.end()){
+					//state was no in the hashmap.
+					previouslyVisited[potentialMove->state] = true;
+					nextStateQueue.push(potentialMove);
+				}
 			}
 		}
 	}
