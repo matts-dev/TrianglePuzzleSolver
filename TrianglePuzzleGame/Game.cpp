@@ -11,6 +11,7 @@
 #include <queue>
 #include <chrono>
 #include <unordered_map>
+#include <unordered_set>
 
 Game::Game()
 {
@@ -114,7 +115,7 @@ void Game::solve()
 
 	//hash<uint16_t> is specialized. uint16_t is unsigned short; 
 	//this specialization is in the header <functional> http://n.cppreference.com/w/cpp/utility/hash
-	std::unordered_map<uint16_t, bool> previouslyVisited;
+	std::unordered_set<uint16_t> previouslyVisited;
 
 
 	steady_clock::time_point end, start = steady_clock::now();
@@ -144,7 +145,7 @@ void Game::solve()
 				//check if this state has been visited
 				if(previouslyVisited.find(potentialMove->state) == previouslyVisited.end()){
 					//state was no in the hashmap.
-					previouslyVisited[potentialMove->state] = true;
+					previouslyVisited.insert(potentialMove->state);
 					nextStateQueue.push(potentialMove);
 				}
 			}
