@@ -12,6 +12,7 @@
 #include <chrono>
 #include <unordered_map>
 #include <unordered_set>
+#include <stack>
 
 Game::Game()
 {
@@ -92,6 +93,7 @@ void Game::solve()
 	using std::chrono::duration_cast;
 	using std::chrono::milliseconds;
 	using std::chrono::seconds;
+	using std::chrono::microseconds;
 	
 
 	//get the start position
@@ -103,7 +105,8 @@ void Game::solve()
 	std::shared_ptr<StateNode> firstState = std::make_shared<StateNode>();
 	firstState->storeState(pegsPresent);
 
-	std::queue<std::shared_ptr<StateNode>> nextStateQueue;
+	//std::queue<std::shared_ptr<StateNode>> nextStateQueue; //queue is essentialy BFS
+	std::stack<std::shared_ptr<StateNode>> nextStateQueue; //stack is essentially DFS
 	nextStateQueue.push(firstState);
 
 	//a buffer to read states into
@@ -123,7 +126,8 @@ void Game::solve()
 	//BFS using the start state.
 	while (nextStateQueue.size() != 0 && !done)
 	{
-		std::shared_ptr<StateNode> node = nextStateQueue.front(); 
+		//std::shared_ptr<StateNode> node = nextStateQueue.front(); //BFS: 237446 microseconds to find solution
+		std::shared_ptr<StateNode> node = nextStateQueue.top(); //DFS: 1230 microseconds to find a solution
 		nextStateQueue.pop();
 
 		node->retrieveState(pegsSrcBuffer);
@@ -134,7 +138,6 @@ void Game::solve()
 			//std::cout << potentialMove->state << std::endl;
 			if (potentialMove->isWinningState())
 			{
-
 				//prepare winning state sequence
 				winSequence = StateNode::reverseList(potentialMove);
 				done = true;
@@ -154,7 +157,7 @@ void Game::solve()
 
 	end = steady_clock::now();
 	steady_clock::duration time = end - start;
-	std::cout << "\n Search complete in " << duration_cast<seconds> (time).count() << " seconds; press enter.\n" << std::endl;
+	std::cout << "\n Search complete in " << duration_cast<microseconds> (time).count() << " microseconds; press enter.\n" << std::endl;
 
 	//print out the sequence to the winning state
 	if (winSequence)
