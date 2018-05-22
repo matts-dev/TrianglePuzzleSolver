@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F7C435BD-4463-3E38-8AFA-96C487BD83BC}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>sfml-graphics</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\matts\Desktop\sfml-build\lib\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">sfml-graphics.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">sfml-graphics-d-2</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\matts\Desktop\sfml-build\lib\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">sfml-graphics.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">sfml-graphics-2</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\matts\Desktop\sfml-build\lib\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">sfml-graphics.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">sfml-graphics-2</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\matts\Desktop\sfml-build\lib\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">sfml-graphics.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">sfml-graphics-2</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\matts\Desktop\sfml-source\include;C:\Users\matts\Desktop\sfml-source\src;C:\Users\matts\Desktop\sfml-source\extlibs\headers\stb_image;C:\Users\matts\Desktop\sfml-source\extlibs\headers\freetype2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;STBI_FAILURE_USERMSG;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;CMAKE_INTDIR="Debug";SFML_GRAPHICS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;STBI_FAILURE_USERMSG;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Debug\";SFML_GRAPHICS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\matts\Desktop\sfml-source\include;C:\Users\matts\Desktop\sfml-source\src;C:\Users\matts\Desktop\sfml-source\extlibs\headers\stb_image;C:\Users\matts\Desktop\sfml-source\extlibs\headers\freetype2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\matts\Desktop\sfml-source\include;C:\Users\matts\Desktop\sfml-source\src;C:\Users\matts\Desktop\sfml-source\extlibs\headers\stb_image;C:\Users\matts\Desktop\sfml-source\extlibs\headers\freetype2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\..\..\lib\Debug\sfml-window-d.lib;..\..\..\lib\Debug\sfml-system-d.lib;opengl32.lib;C:\Users\matts\Desktop\sfml-source\extlibs\libs-msvc-universal\x86\freetype.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/matts/Desktop/sfml-build/lib/Debug/sfml-graphics-d.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/matts/Desktop/sfml-build/lib/Debug/sfml-graphics.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\matts\Desktop\sfml-source\include;C:\Users\matts\Desktop\sfml-source\src;C:\Users\matts\Desktop\sfml-source\extlibs\headers\stb_image;C:\Users\matts\Desktop\sfml-source\extlibs\headers\freetype2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;STBI_FAILURE_USERMSG;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;CMAKE_INTDIR="Release";SFML_GRAPHICS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;STBI_FAILURE_USERMSG;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\";SFML_GRAPHICS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\matts\Desktop\sfml-source\include;C:\Users\matts\Desktop\sfml-source\src;C:\Users\matts\Desktop\sfml-source\extlibs\headers\stb_image;C:\Users\matts\Desktop\sfml-source\extlibs\headers\freetype2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\matts\Desktop\sfml-source\include;C:\Users\matts\Desktop\sfml-source\src;C:\Users\matts\Desktop\sfml-source\extlibs\headers\stb_image;C:\Users\matts\Desktop\sfml-source\extlibs\headers\freetype2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\..\..\lib\Release\sfml-window.lib;..\..\..\lib\Release\sfml-system.lib;opengl32.lib;C:\Users\matts\Desktop\sfml-source\extlibs\libs-msvc-universal\x86\freetype.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/matts/Desktop/sfml-build/lib/Release/sfml-graphics.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/matts/Desktop/sfml-build/lib/Release/sfml-graphics.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\matts\Desktop\sfml-source\include;C:\Users\matts\Desktop\sfml-source\src;C:\Users\matts\Desktop\sfml-source\extlibs\headers\stb_image;C:\Users\matts\Desktop\sfml-source\extlibs\headers\freetype2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;STBI_FAILURE_USERMSG;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;CMAKE_INTDIR="MinSizeRel";SFML_GRAPHICS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;STBI_FAILURE_USERMSG;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"MinSizeRel\";SFML_GRAPHICS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\matts\Desktop\sfml-source\include;C:\Users\matts\Desktop\sfml-source\src;C:\Users\matts\Desktop\sfml-source\extlibs\headers\stb_image;C:\Users\matts\Desktop\sfml-source\extlibs\headers\freetype2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\matts\Desktop\sfml-source\include;C:\Users\matts\Desktop\sfml-source\src;C:\Users\matts\Desktop\sfml-source\extlibs\headers\stb_image;C:\Users\matts\Desktop\sfml-source\extlibs\headers\freetype2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\..\..\lib\MinSizeRel\sfml-window.lib;..\..\..\lib\MinSizeRel\sfml-system.lib;opengl32.lib;C:\Users\matts\Desktop\sfml-source\extlibs\libs-msvc-universal\x86\freetype.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/matts/Desktop/sfml-build/lib/MinSizeRel/sfml-graphics.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/matts/Desktop/sfml-build/lib/MinSizeRel/sfml-graphics.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\matts\Desktop\sfml-source\include;C:\Users\matts\Desktop\sfml-source\src;C:\Users\matts\Desktop\sfml-source\extlibs\headers\stb_image;C:\Users\matts\Desktop\sfml-source\extlibs\headers\freetype2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;STBI_FAILURE_USERMSG;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;CMAKE_INTDIR="RelWithDebInfo";SFML_GRAPHICS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;STBI_FAILURE_USERMSG;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"RelWithDebInfo\";SFML_GRAPHICS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\matts\Desktop\sfml-source\include;C:\Users\matts\Desktop\sfml-source\src;C:\Users\matts\Desktop\sfml-source\extlibs\headers\stb_image;C:\Users\matts\Desktop\sfml-source\extlibs\headers\freetype2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\matts\Desktop\sfml-source\include;C:\Users\matts\Desktop\sfml-source\src;C:\Users\matts\Desktop\sfml-source\extlibs\headers\stb_image;C:\Users\matts\Desktop\sfml-source\extlibs\headers\freetype2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\..\..\lib\RelWithDebInfo\sfml-window.lib;..\..\..\lib\RelWithDebInfo\sfml-system.lib;opengl32.lib;C:\Users\matts\Desktop\sfml-source\extlibs\libs-msvc-universal\x86\freetype.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/matts/Desktop/sfml-build/lib/RelWithDebInfo/sfml-graphics.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/matts/Desktop/sfml-build/lib/RelWithDebInfo/sfml-graphics.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/matts/Desktop/sfml-source/src/SFML/Graphics/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/matts/Desktop/sfml-source -BC:/Users/matts/Desktop/sfml-build --check-stamp-file C:/Users/matts/Desktop/sfml-build/src/SFML/Graphics/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/matts/Desktop/sfml-source/src/SFML/Graphics/CMakeLists.txt;C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\CMakeLists.txt;C:\Users\matts\Desktop\sfml-source\cmake\Modules\FindFreetype.cmake;C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\matts\Desktop\sfml-build\src\SFML\Graphics\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/matts/Desktop/sfml-source/src/SFML/Graphics/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/matts/Desktop/sfml-source -BC:/Users/matts/Desktop/sfml-build --check-stamp-file C:/Users/matts/Desktop/sfml-build/src/SFML/Graphics/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/matts/Desktop/sfml-source/src/SFML/Graphics/CMakeLists.txt;C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\CMakeLists.txt;C:\Users\matts\Desktop\sfml-source\cmake\Modules\FindFreetype.cmake;C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\matts\Desktop\sfml-build\src\SFML\Graphics\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/matts/Desktop/sfml-source/src/SFML/Graphics/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/matts/Desktop/sfml-source -BC:/Users/matts/Desktop/sfml-build --check-stamp-file C:/Users/matts/Desktop/sfml-build/src/SFML/Graphics/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/matts/Desktop/sfml-source/src/SFML/Graphics/CMakeLists.txt;C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\CMakeLists.txt;C:\Users\matts\Desktop\sfml-source\cmake\Modules\FindFreetype.cmake;C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\matts\Desktop\sfml-build\src\SFML\Graphics\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/matts/Desktop/sfml-source/src/SFML/Graphics/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/matts/Desktop/sfml-source -BC:/Users/matts/Desktop/sfml-build --check-stamp-file C:/Users/matts/Desktop/sfml-build/src/SFML/Graphics/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/matts/Desktop/sfml-source/src/SFML/Graphics/CMakeLists.txt;C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\CMakeLists.txt;C:\Users\matts\Desktop\sfml-source\cmake\Modules\FindFreetype.cmake;C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\matts\Desktop\sfml-build\src\SFML\Graphics\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\BlendMode.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\BlendMode.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\Color.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\Color.hpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\Export.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\Font.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\Font.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\Glsl.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\Glsl.hpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\Glsl.inl" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\Glyph.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\GLCheck.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\GLCheck.hpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\GLExtensions.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\GLExtensions.cpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\Image.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\Image.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\ImageLoader.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\ImageLoader.hpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\PrimitiveType.hpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\Rect.hpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\Rect.inl" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\RenderStates.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\RenderStates.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\RenderTexture.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\RenderTexture.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\RenderTarget.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\RenderTarget.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\RenderWindow.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\RenderWindow.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\Shader.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\Shader.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\Texture.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\Texture.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\TextureSaver.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\TextureSaver.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\Transform.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\Transform.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\Transformable.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\Transformable.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\View.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\View.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\Vertex.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\Vertex.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\GLLoader.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\GLLoader.hpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\Drawable.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\Shape.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\Shape.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\CircleShape.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\CircleShape.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\RectangleShape.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\RectangleShape.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\ConvexShape.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\ConvexShape.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\Sprite.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\Sprite.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\Text.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\Text.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\VertexArray.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\VertexArray.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\VertexBuffer.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\include\SFML\Graphics\VertexBuffer.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\RenderTextureImpl.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\RenderTextureImpl.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\RenderTextureImplFBO.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\RenderTextureImplFBO.hpp" />
+    <ClCompile Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\RenderTextureImplDefault.cpp" />
+    <ClInclude Include="C:\Users\matts\Desktop\sfml-source\src\SFML\Graphics\RenderTextureImplDefault.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\matts\Desktop\sfml-build\ZERO_CHECK.vcxproj">
+      <Project>{160A6F4A-FD87-3133-A86A-04D1A426FE55}</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\matts\Desktop\sfml-build\src\SFML\System\sfml-system.vcxproj">
+      <Project>{534EAB0B-9AD6-381E-9076-BD242B0E6527}</Project>
+      <Name>sfml-system</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\matts\Desktop\sfml-build\src\SFML\Window\sfml-window.vcxproj">
+      <Project>{A57907DF-5A3D-3E55-BB06-67EB4D6DB69D}</Project>
+      <Name>sfml-window</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

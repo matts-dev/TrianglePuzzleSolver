@@ -89,76 +89,13 @@ bool Game::gameOver()
 
 void Game::solve()
 {
-	using std::chrono::steady_clock;
-	using std::chrono::duration_cast;
-	using std::chrono::milliseconds;
-	using std::chrono::seconds;
-	using std::chrono::microseconds;
-	
-
 	//get the start position
 	printLocations();
 	int startPos = getStartLocationFromUser();
 	initializeStartHoleTo(startPos);
 
-	//prepare BFS
-	std::shared_ptr<StateNode> firstState = std::make_shared<StateNode>();
-	firstState->storeState(pegsPresent);
-
-	//std::queue<std::shared_ptr<StateNode>> nextStateQueue; //queue is essentialy BFS
-	std::stack<std::shared_ptr<StateNode>> nextStateQueue; //stack is essentially DFS
-	nextStateQueue.push(firstState);
-
-	//a buffer to read states into
-	std::array<bool, NUM_PEGS> pegsSrcBuffer = { 0 };
-	std::vector<std::shared_ptr<StateNode>> moveBuffer;
-
-	std::shared_ptr<StateNode> winSequence = nullptr;
-	bool done = false;
-
-	//hash<uint16_t> is specialized. uint16_t is unsigned short; 
-	//this specialization is in the header <functional> http://n.cppreference.com/w/cpp/utility/hash
-	std::unordered_set<uint16_t> previouslyVisited;
-
-
-	steady_clock::time_point end, start = steady_clock::now();
+	std::shared_ptr<StateNode> winSequence = solve_from_config();
 	
-	//BFS using the start state.
-	while (nextStateQueue.size() != 0 && !done)
-	{
-		//std::shared_ptr<StateNode> node = nextStateQueue.front(); //BFS: 237446 microseconds to find solution
-		std::shared_ptr<StateNode> node = nextStateQueue.top(); //DFS: 1230 microseconds to find a solution
-		nextStateQueue.pop();
-
-		node->retrieveState(pegsSrcBuffer);
-		board.getAllMoves(moveBuffer, node);
-
-		for (std::shared_ptr<StateNode>& potentialMove : moveBuffer)
-		{
-			//std::cout << potentialMove->state << std::endl;
-			if (potentialMove->isWinningState())
-			{
-				//prepare winning state sequence
-				winSequence = StateNode::reverseList(potentialMove);
-				done = true;
-				break;
-			}
-			else
-			{
-				//check if this state has been visited
-				if(previouslyVisited.find(potentialMove->state) == previouslyVisited.end()){
-					//state was no in the hashmap.
-					previouslyVisited.insert(potentialMove->state);
-					nextStateQueue.push(potentialMove);
-				}
-			}
-		}
-	}
-
-	end = steady_clock::now();
-	steady_clock::duration time = end - start;
-	std::cout << "\n Search complete in " << duration_cast<microseconds> (time).count() << " microseconds; press enter.\n" << std::endl;
-
 	//print out the sequence to the winning state
 	if (winSequence)
 	{
@@ -248,5 +185,77 @@ int Game::getStartLocationFromUser()
 	std::cin.get(); //buffer clear on newline after number.
 
 	return startPos;
+}
+
+std::shared_ptr<StateNode> Game::solve_from_config()
+{
+	using std::chrono::steady_clock;
+	using std::chrono::duration_cast;
+	using std::chrono::milliseconds;
+	using std::chrono::seconds;
+	using std::chrono::microseconds;
+
+	std::shared_ptr<StateNode> winSequence = nullptr;
+
+	bool done = false;
+
+	//prepare BFS/DFS
+	std::shared_ptr<StateNode> firstState = std::make_shared<StateNode>();
+	firstState->storeState(pegsPresent);
+
+	//std::queue<std::shared_ptr<StateNode>> nextStateQueue; //queue is essentialy BFS
+	std::stack<std::shared_ptr<StateNode>> nextStateQueue; //stack is essentially DFS
+	nextStateQueue.push(firstState);
+
+	//a buffer to read states into
+	std::array<bool, NUM_PEGS> pegsSrcBuffer = { 0 };
+	std::vector<std::shared_ptr<StateNode>> moveBuffer;
+
+
+	//hash<uint16_t> is specialized. uint16_t is unsigned short; 
+	//this specialization is in the header <functional> http://n.cppreference.com/w/cpp/utility/hash
+	std::unordered_set<uint16_t> previouslyVisited;
+
+	steady_clock::time_point end, start = steady_clock::now();
+
+	//BFS using the start state.
+	while (nextStateQueue.size() != 0 && !done)
+	{
+		//std::shared_ptr<StateNode> node = nextStateQueue.front(); //BFS: 237446 microseconds to find solution
+		std::shared_ptr<StateNode> node = nextStateQueue.top(); //DFS: 1230 microseconds to find a solution
+		nextStateQueue.pop();
+
+		node->retrieveState(pegsSrcBuffer);
+		board.getAllMoves(moveBuffer, node);
+
+		for (std::shared_ptr<StateNode>& potentialMove : moveBuffer)
+		{
+			//std::cout << potentialMove->state << std::endl;
+			if (potentialMove->isWinningState())
+			{
+				//prepare winning state sequence
+				winSequence = StateNode::reverseList(potentialMove);
+				done = true;
+				break;
+			}
+			else
+			{
+				//check if this state has been visited
+				if (previouslyVisited.find(potentialMove->state) == previouslyVisited.end())
+				{
+					//state was no in the hashmap.
+					previouslyVisited.insert(potentialMove->state);
+					nextStateQueue.push(potentialMove);
+				}
+			}
+		}
+	}
+
+	end = steady_clock::now();
+	steady_clock::duration time = end - start;
+	std::cout << "\n Search complete in " << duration_cast<microseconds> (time).count() << " microseconds; press enter.\n" << std::endl;
+
+
+	return winSequence;
 }
 

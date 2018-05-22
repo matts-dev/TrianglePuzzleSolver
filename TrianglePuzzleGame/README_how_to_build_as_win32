@@ -1,0 +1,11 @@
+Hey guys,
+
+This is currently configured to be a static library for the other project(s).To configure this to be an application,
+
+1. Right click on the project TrianglePuzzleGame
+a.And click properties(alt + enter)
+2. Navigated to Configuration Properties
+a.select General
+b.within the window that pops up to the left, you will see two collapseable tabs : General and Project Defaults.
+c.Under proejct Defaults, set the configuration type to Application(.exe) (it should currently be set to Static Library(.lib))
+3. Done, now just right click on the TrianglePuzzleGame and select "set at StartUp Project", then build / run.

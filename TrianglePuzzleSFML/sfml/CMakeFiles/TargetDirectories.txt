@@ -1,0 +1,16 @@
+C:/Users/matts/Desktop/sfml-build/CMakeFiles/INSTALL.dir
+C:/Users/matts/Desktop/sfml-build/CMakeFiles/ALL_BUILD.dir
+C:/Users/matts/Desktop/sfml-build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/matts/Desktop/sfml-build/src/SFML/CMakeFiles/INSTALL.dir
+C:/Users/matts/Desktop/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir
+C:/Users/matts/Desktop/sfml-build/src/SFML/System/CMakeFiles/INSTALL.dir
+C:/Users/matts/Desktop/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir
+C:/Users/matts/Desktop/sfml-build/src/SFML/Main/CMakeFiles/INSTALL.dir
+C:/Users/matts/Desktop/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir
+C:/Users/matts/Desktop/sfml-build/src/SFML/Window/CMakeFiles/INSTALL.dir
+C:/Users/matts/Desktop/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir
+C:/Users/matts/Desktop/sfml-build/src/SFML/Network/CMakeFiles/INSTALL.dir
+C:/Users/matts/Desktop/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir
+C:/Users/matts/Desktop/sfml-build/src/SFML/Graphics/CMakeFiles/INSTALL.dir
+C:/Users/matts/Desktop/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir
+C:/Users/matts/Desktop/sfml-build/src/SFML/Audio/CMakeFiles/INSTALL.dir
