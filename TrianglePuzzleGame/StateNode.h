@@ -13,8 +13,8 @@ struct StateNode
 	std::shared_ptr<StateNode> previous_state = nullptr;
 	uint16_t state;
 
-	void storeState(const std::array<bool, NUM_PEGS>& pegsAvailable);
-	void retrieveState(std::array<bool, NUM_PEGS>& pegsAvailable);
+	void storeState(const PegArray& pegsAvailable);
+	void retrieveState(PegArray& pegsAvailable);
 	bool isWinningState() const;
 	static std::shared_ptr<StateNode> reverseList(std::shared_ptr<StateNode> tail);
 };

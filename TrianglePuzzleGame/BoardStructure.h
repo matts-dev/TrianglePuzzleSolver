@@ -42,8 +42,8 @@ class BoardStructure
 public:
 	BoardStructure();
 	~BoardStructure();
-	bool isValidMove(int rawIdx, Direction dir, const std::array<bool, NUM_PEGS>& currentPegs) const;
-	void commitMove(int fromIdx, Direction dir, std::array<bool, NUM_PEGS>& currentPegs);
+	bool isValidMove(int rawIdx, Direction dir, const PegArray& currentPegs) const;
+	bool commitMove(int fromIdx, Direction dir, PegArray& currentPegs);
 	bool hasPossibleMoves(const std::array<bool, 15>& remainingPegs);
 
 	void getAllMoves(std::vector<std::shared_ptr<StateNode>>& moveBuffer, std::shared_ptr<StateNode>& node);

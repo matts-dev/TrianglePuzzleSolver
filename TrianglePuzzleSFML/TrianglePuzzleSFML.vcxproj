@@ -127,6 +127,7 @@
   <ItemGroup>
     <ClCompile Include="Game2D.cpp" />
     <ClCompile Include="IndexedSprite.cpp" />
+    <ClCompile Include="KeyboardManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MouseManager.cpp" />
   </ItemGroup>
@@ -142,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game2D.h" />
+    <ClInclude Include="KeyboardManager.h" />
     <ClInclude Include="MathUtils.h" />
     <ClInclude Include="IndexedSprite.h" />
     <ClInclude Include="MouseManager.h" />

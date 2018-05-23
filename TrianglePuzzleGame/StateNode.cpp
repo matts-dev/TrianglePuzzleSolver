@@ -2,14 +2,14 @@
 #include <stack>
 
 //typedefs
-using arr_sz = std::array<bool, NUM_PEGS>::size_type;
+using arr_sz = PegArray::size_type;
 
 //StateNode::~StateNode()
 //{
 //	previous_state = nullptr;
 //}
 
-void StateNode::storeState(const std::array<bool, NUM_PEGS>& pegsAvailable)
+void StateNode::storeState(const PegArray& pegsAvailable)
 {
 	state = 0;
 	//for (arr_sz i = 0; i < pegsAvailable.size(); ++i)
@@ -22,7 +22,7 @@ void StateNode::storeState(const std::array<bool, NUM_PEGS>& pegsAvailable)
 	}
 }
 
-void StateNode::retrieveState(std::array<bool, NUM_PEGS>& pegsAvailable)
+void StateNode::retrieveState(PegArray& pegsAvailable)
 {
 	uint16_t mask = 0x0001;
 	uint16_t state_cpy = state;

@@ -4,6 +4,7 @@
 #include "StateNode.h"
 
 
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // PEG NODE
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -204,7 +205,7 @@ bool BoardStructure::isValidMove(
 	return true;
 }
 
-void BoardStructure::commitMove(int fromIdx, Direction dir, std::array<bool, NUM_PEGS>& currentPegs)
+bool BoardStructure::commitMove(int fromIdx, Direction dir, PegArray& currentPegs)
 {
 	if (!Utils::isOutOfBounds(fromIdx) && isValidMove(fromIdx, dir, currentPegs))
 	{
@@ -216,12 +217,14 @@ void BoardStructure::commitMove(int fromIdx, Direction dir, std::array<bool, NUM
 		currentPegs[src.assignedIndex] = false;
 		currentPegs[mid->assignedIndex] = false;
 		currentPegs[dst->assignedIndex] = true;
+		return true;
 	}
+	return false;
 }
 
 bool BoardStructure::hasPossibleMoves(const std::array<bool, 15>& remainingPegs)
 {
-	using arr_size_t = std::array<bool, NUM_PEGS>::size_type;
+	using arr_size_t = PegArray::size_type;
 	//this method returns early if there is a viable move.
 
 	for (arr_size_t i = 0; i < remainingPegs.size(); ++i)
@@ -257,12 +260,12 @@ using std::vector;
 using std::shared_ptr;
 void BoardStructure::getAllMoves(vector<shared_ptr<StateNode>>& moveBuffer, shared_ptr<StateNode>& node)
 {
-	using arr_size_t = std::array<bool, NUM_PEGS>::size_type;
+	using arr_size_t = PegArray::size_type;
 	moveBuffer.clear();
 
 	//load up the start state. 
-	std::array<bool, NUM_PEGS> pegFlags = { 0 };
-	std::array<bool, NUM_PEGS> pegFlagsCpy; //copied later if needed
+	PegArray pegFlags = { 0 };
+	PegArray pegFlagsCpy; //copied later if needed
 	node->retrieveState(pegFlags);
 
 	//find all moves and add them to the move buffer.

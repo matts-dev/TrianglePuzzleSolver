@@ -128,6 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BoardStructure.h" />
+    <ClInclude Include="Declarations.h" />
     <ClInclude Include="Direction.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="StateNode.h" />

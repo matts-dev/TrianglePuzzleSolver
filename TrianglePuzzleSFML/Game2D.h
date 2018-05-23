@@ -9,6 +9,8 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include "KeyboardManager.h"
+#include <stack>
 
 class Game2D : public Game, public MouseManager::Callback_Interface
 {
@@ -35,18 +37,22 @@ private: // game state
 	GameState currentState;
 	IndexedSprite* draggingPeg;
 	sf::Vector2f draggedStartPosition;
+	KeyboardManager kbManager;
+	std::stack<PegArray> previousMove;
 
 private: //helpers
 	glm::vec2 R, UR, UL, L, DL, DR;
 	std::map<Direction, glm::vec2*> directionMap;
 
 private: //methods
-	
 	void configureBackgroundSprite();
 	void configurePegHoles();
 	void configurePegs();
 	void configureDirectionVectors();
-	void refreshPegLayout();;
+	void refreshPegLayout();
+	void requestStateChange(IndexedSprite& peg, IndexedSprite& hole);
+	void stepTowardSolution();
+	void stepBack();
 
 	void io();
 
@@ -65,7 +71,6 @@ public: //methods
 	const Game2D& operator=(const Game2D&& copy) = delete;
 
 	void game_loop();
-
-	void requestStateChange(IndexedSprite& peg, IndexedSprite& hole);
+	void reset();
 };
 

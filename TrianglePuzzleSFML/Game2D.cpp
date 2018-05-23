@@ -37,7 +37,8 @@ Game2D::Game2D() :
 	window(sf::VideoMode(1400, 900), "Peg Game!"),
 	mouseManager(window, *this),
 	draggingPeg(nullptr),
-	currentState(GameState::SELECT_HOLE)
+	currentState(GameState::SELECT_HOLE),
+	kbManager()
 {
 	//load textures
 	initializeTextureHelper(boardTexture, "assets/background_tri.png");
@@ -95,6 +96,58 @@ void Game2D::game_loop()
 	}
 }
 
+void Game2D::reset()
+{
+	currentState = GameState::SELECT_HOLE;
+	for (auto& peg : pegsPresent)
+	{
+		peg = true;
+	}
+	refreshPegLayout();
+}
+
+void Game2D::stepBack()
+{
+	if (previousMove.empty())
+	{
+		reset();
+	}
+	else
+	{
+		//copy previous state
+		pegsPresent = previousMove.top();
+		previousMove.pop();
+		refreshPegLayout();
+
+		currentState = GameState::MOVE_PEGS;
+	}
+}
+
+void Game2D::stepTowardSolution()
+{
+	if (currentState == GameState::GAME_OVER || currentState == GameState::SELECT_HOLE) return;
+
+	std::shared_ptr<StateNode> winSequence = solve_from_config();
+
+	if (winSequence)
+	{
+		winSequence = winSequence->previous_state;
+	}
+
+  	if (winSequence)
+	{ 
+		previousMove.push(pegsPresent);// copy O(n)
+
+		winSequence->retrieveState(pegsPresent);
+		refreshPegLayout();
+	}
+
+	if (gameOver())
+	{
+		currentState = GameState::GAME_OVER;
+	}
+}
+
 void Game2D::requestStateChange(IndexedSprite& peg, IndexedSprite& hole)
 {
 	glm::vec2 moveDir;
@@ -108,8 +161,14 @@ void Game2D::requestStateChange(IndexedSprite& peg, IndexedSprite& hole)
 		float match = glm::dot(dir_v, moveDir);
 		if (MathUtils::almostEqual(match, 1.f, 0.001f))
 		{
+			PegArray stateBeforeMove = pegsPresent; // copy O(n)
+
 			//direction match, see if game state allows move.
-			commitMove(peg.getIndex(), dir_iter);
+			if (commitMove(peg.getIndex(), dir_iter))
+			{
+				previousMove.push(stateBeforeMove);
+			}
+
 			if (gameOver())
 			{
 				currentState = GameState::GAME_OVER;
@@ -260,16 +319,22 @@ void Game2D::io()
 {
 	//mouse input
 	mouseManager.io();
+	kbManager.updateKeyPresses();
 
-
-	// debug input
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::R))
 	{
-		//backgroundSprite.rotate(0.01f);
+		reset();
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
+
+	if (kbManager.keyJustPressed(sf::Keyboard::Key::Space)
+		|| kbManager.keyJustPressed(sf::Keyboard::Key::Right))
 	{
-		//backgroundSprite.rotate(-0.01f);
+		stepTowardSolution();
+	}
+
+	if (kbManager.keyJustPressed(sf::Keyboard::Key::Left))
+	{
+		stepBack();
 	}
 }
 

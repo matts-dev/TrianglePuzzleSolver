@@ -1,6 +1,7 @@
 #pragma once
 
-#define NUM_PEGS 15
+#include <array>
+#include "Declarations.h"
 
 namespace Utils
 {

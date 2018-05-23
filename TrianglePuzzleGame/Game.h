@@ -9,7 +9,7 @@ class Game
 {
 protected:
 	BoardStructure board;
-	std::array<bool, NUM_PEGS> pegsPresent;
+	PegArray pegsPresent;
 
 public:
 	Game();
@@ -24,7 +24,7 @@ public:
 protected:
 	void printState();
 	void requestMove();
-	void commitMove(int from, Direction dir);
+	bool commitMove(int from, Direction dir);
 	
 	int getStartLocationFromUser();
 	std::shared_ptr<StateNode> solve_from_config();

@@ -171,9 +171,9 @@ void Game::requestMove()
 }
 
 
-void Game::commitMove(int fromIdx, Direction dir)
+bool Game::commitMove(int from, Direction dir)
 {
-	board.commitMove(fromIdx, dir, pegsPresent);
+	return board.commitMove(from, dir, pegsPresent);
 }
 
 int Game::getStartLocationFromUser()
@@ -208,7 +208,7 @@ std::shared_ptr<StateNode> Game::solve_from_config()
 	nextStateQueue.push(firstState);
 
 	//a buffer to read states into
-	std::array<bool, NUM_PEGS> pegsSrcBuffer = { 0 };
+	PegArray pegsSrcBuffer = { 0 };
 	std::vector<std::shared_ptr<StateNode>> moveBuffer;
 
 
