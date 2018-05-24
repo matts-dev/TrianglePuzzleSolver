@@ -13,7 +13,7 @@ protected:
 
 public:
 	Game();
-	~Game();
+	virtual ~Game();
 
 	void printLocations();
 	void initializeStartHoleTo(unsigned int startPos);
