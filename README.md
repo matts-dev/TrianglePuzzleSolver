@@ -3,6 +3,8 @@
 A program that solves the famous triangle peg game.
 Press the right arrow key to see the next best move or press the left arrow key to reverse the previous move.
 ```
+![Alt text](/PegGameScreenshot.png?raw=true)
+
 # How to play:
 The goal of the game is to have one peg remaining on the screen. Pegs are removed by having a peg jump over another and land into an empty space; the peg jumped over is removed.
 Once the game has started, click on the first peg you want removed; this creates the first hole to jump into.
